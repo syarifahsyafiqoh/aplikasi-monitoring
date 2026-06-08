@@ -1,0 +1,459 @@
+/* ========================================
+   DASHBOARD ADMIN CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header-dashboard {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(124, 139, 109, 0.25);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.welcome-text {
+    color: rgba(220, 225, 217, 0.9);
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+}
+
+.page-title {
+    color: #DCE1D9;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-title i {
+    font-size: 2.5rem;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.current-date {
+    color: #DCE1D9;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.current-time {
+    color: rgba(220, 225, 217, 0.8);
+    font-size: 0.95rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* ========================================
+   STATISTICS CARDS
+   ======================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: rgba(124, 139, 109, 0.05);
+    border-radius: 50%;
+    transform: translate(40%, -40%);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card.total {
+    border-left-color: #7C8B6D;
+}
+
+.stat-card.admin {
+    border-left-color: #dc3545;
+}
+
+.stat-card.bendahara {
+    border-left-color: #ffc107;
+}
+
+.stat-card.operator {
+    border-left-color: #28a745;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card.total .stat-icon {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+}
+
+.stat-card.admin .stat-icon {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+}
+
+.stat-card.bendahara .stat-icon {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #212529;
+}
+
+.stat-card.operator .stat-icon {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+}
+
+.stat-info {
+    flex: 1;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ========================================
+   QUICK ACTIONS CARD
+   ======================================== */
+.quick-actions-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    color: #7C8B6D;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title i {
+    font-size: 1.5rem;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    border-color: #7C8B6D;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(124, 139, 109, 0.3);
+}
+
+.action-icon {
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #7C8B6D;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover .action-icon {
+    background: rgba(255, 255, 255, 0.2);
+    color: #DCE1D9;
+}
+
+.action-text {
+    flex: 1;
+}
+
+.action-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.action-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* ========================================
+   INFO CARDS
+   ======================================== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-card .section-title {
+    margin-bottom: 1.25rem;
+}
+
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-item {
+    padding: 1rem;
+    border-left: 3px solid #7C8B6D;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: #e9ecef;
+    border-left-width: 5px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item-title {
+    color: #7C8B6D;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.info-item-text {
+    color: #495057;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ========================================
+   ACTIVITY LOG (Optional)
+   ======================================== */
+.activity-log {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.activity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-text {
+    color: #495057;
+    font-size: 0.9rem;
+    margin: 0 0 0.25rem 0;
+}
+
+.activity-time {
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header-dashboard {
+        padding: 1.75rem 1.5rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .header-right {
+        align-items: flex-start;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .page-title i {
+        font-size: 1.75rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-value {
+        font-size: 1.75rem;
+    }
+    
+    .actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stat-card,
+.quick-actions-card,
+.info-card,
+.activity-log {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }

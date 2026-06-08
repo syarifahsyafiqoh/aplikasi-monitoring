@@ -1,0 +1,637 @@
+/* ========================================
+   GAJI INDUK CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.page-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.75rem;
+    box-shadow: 0 4px 12px rgba(124, 139, 109, 0.3);
+}
+
+.page-info {
+    flex: 1;
+}
+
+.page-title {
+    color: #7C8B6D;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.page-subtitle {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.page-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    white-space: nowrap;
+}
+
+.btn-primary-action {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.btn-primary-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(124, 139, 109, 0.3);
+    color: #ffffff;
+}
+
+.btn-export {
+    background: #ffffff;
+    color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-export:hover {
+    background: #28a745;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* ========================================
+   STATISTICS CARDS MINI
+   ======================================== */
+.stats-cards-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card-mini {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid;
+}
+
+.stat-card-mini:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card-mini.stat-primary {
+    border-left-color: #7C8B6D;
+}
+
+.stat-card-mini.stat-success {
+    border-left-color: #28a745;
+}
+
+.stat-card-mini.stat-info {
+    border-left-color: #17a2b8;
+}
+
+.stat-mini-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-primary .stat-mini-icon {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    color: #ffffff;
+}
+
+.stat-success .stat-mini-icon {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: #ffffff;
+}
+
+.stat-info .stat-mini-icon {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    color: #ffffff;
+}
+
+.stat-mini-content {
+    flex: 1;
+}
+
+.stat-mini-label {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin: 0 0 0.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-mini-value {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* ========================================
+   DATA TABLE CARD
+   ======================================== */
+.data-table-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+.table-card-header {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    padding: 1.25rem 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.table-header-left {
+    flex: 1;
+}
+
+.table-title {
+    color: #DCE1D9;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.table-title i {
+    font-size: 1.25rem;
+}
+
+.table-header-right {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.filter-select {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #7C8B6D;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    min-width: 150px;
+}
+
+.filter-select:focus {
+    background: #ffffff;
+    border-color: #DCE1D9;
+    box-shadow: 0 0 0 0.2rem rgba(220, 225, 217, 0.25);
+}
+
+.table-card-body {
+    padding: 1.5rem;
+}
+
+/* ========================================
+   CUSTOM DATATABLE STYLING
+   ======================================== */
+.custom-datatable {
+    width: 100% !important;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.custom-datatable thead th {
+    background: #f8f9fa;
+    color: #7C8B6D;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border: none;
+    border-bottom: 2px solid #dee2e6;
+    white-space: nowrap;
+}
+
+.custom-datatable tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.875rem;
+}
+
+.custom-datatable tbody tr {
+    transition: all 0.3s ease;
+}
+
+.custom-datatable tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.custom-datatable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Table Number Badge */
+.table-number-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* Akun Badge */
+.akun-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: rgba(124, 139, 109, 0.1);
+    color: #7C8B6D;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* Currency Value */
+.currency-value {
+    color: #495057;
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+}
+
+/* Total Value */
+.total-value {
+    color: #7C8B6D;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+/* Seksi Badge */
+.seksi-badge {
+    display: inline-block;
+    padding: 0.35rem 0.875rem;
+    background: linear-gradient(135deg, #889063 0%, #7C8B6D 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+.action-buttons-group {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-table-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-detail {
+    background: rgba(23, 162, 184, 0.1);
+    color: #17a2b8;
+}
+
+.btn-detail:hover {
+    background: #17a2b8;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.btn-edit {
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+}
+
+.btn-edit:hover {
+    background: #ffc107;
+    color: #212529;
+    transform: scale(1.1);
+}
+
+.btn-delete {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.btn-delete:hover {
+    background: #dc3545;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* ========================================
+   DATATABLE CONTROLS
+   ======================================== */
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_paginate {
+    padding: 0.75rem 0;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    padding: 0.375rem 2rem 0.375rem 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #495057;
+    font-size: 0.875rem;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    outline: none;
+    border-color: #7C8B6D;
+    box-shadow: 0 0 0 0.2rem rgba(124, 139, 109, 0.15);
+}
+
+.dataTables_wrapper .dataTables_info {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.5rem 0.875rem;
+    margin: 0 0.25rem;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    color: #495057 !important;
+    background: #ffffff;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #7C8B6D !important;
+    color: #ffffff !important;
+    border-color: #7C8B6D !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dataTables_wrapper .dataTables_processing {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 1200px) {
+    .stats-cards-mini {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .page-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .stats-cards-mini {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .table-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .table-header-right {
+        width: 100%;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .page-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 1.25rem;
+    }
+    
+    .btn-action {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .table-card-body {
+        padding: 1rem;
+    }
+    
+    .custom-datatable thead th,
+    .custom-datatable tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .action-buttons-group {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .btn-table-action {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .page-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-action {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .stat-card-mini {
+        padding: 1.25rem;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #7C8B6D;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #889063;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.data-table-card,
+.stat-card-mini,
+.page-header {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.stat-card-mini:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.stat-card-mini:nth-child(3) {
+    animation-delay: 0.2s;
+}

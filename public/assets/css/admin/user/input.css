@@ -1,0 +1,316 @@
+/* ========================================
+   INPUT USER CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* ========================================
+   FORM CARD STYLING
+   ======================================== */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: none !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%) !important;
+    padding: 2rem;
+    border: none;
+}
+
+.card-header h4 {
+    color: #DCE1D9 !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+/* ========================================
+   FORM ELEMENTS STYLING
+   ======================================== */
+.form-label {
+    color: #2c3e50;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control,
+.form-select {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: #495057;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #7C8B6D;
+    box-shadow: 0 0 0 0.25rem rgba(124, 139, 109, 0.15);
+    outline: none;
+    background: #fafafa;
+}
+
+.form-control::placeholder {
+    color: #adb5bd;
+    font-size: 0.9rem;
+}
+
+/* Input icons enhancement */
+.form-control:focus::placeholder {
+    opacity: 0.6;
+}
+
+/* Select styling */
+.form-select {
+    cursor: pointer;
+    padding-right: 2.5rem;
+    background-color: #ffffff !important;
+}
+
+.form-select:focus {
+    background-color: #fafafa !important;
+}
+
+/* Dropdown options styling */
+.form-select option {
+    padding: 0.5rem;
+    background-color: #ffffff;
+    color: #495057;
+}
+
+/* Form group spacing */
+.mb-3 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* ========================================
+   BUTTON STYLING
+   ======================================== */
+.btn {
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(124, 139, 109, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #889063 0%, #7C8B6D 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(124, 139, 109, 0.4);
+    color: #ffffff;
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(124, 139, 109, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.2);
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(108, 117, 125, 0.3);
+    color: #ffffff;
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+/* Button group spacing */
+.d-flex.gap-3 {
+    gap: 1rem !important;
+}
+
+/* ========================================
+   VALIDATION STATES
+   ======================================== */
+.form-control.is-invalid,
+.form-select.is-invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.form-control.is-invalid:focus,
+.form-select.is-invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.15);
+}
+
+.invalid-feedback {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.form-control.is-valid,
+.form-select.is-valid {
+    border-color: #28a745;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+.valid-feedback {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #28a745;
+    font-weight: 500;
+}
+
+/* ========================================
+   PASSWORD VISIBILITY TOGGLE
+   ======================================== */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #7C8B6D;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 1.5rem;
+    }
+    
+    .card-header h4 {
+        font-size: 1.25rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .form-control,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 0.65rem 0.875rem;
+    }
+    
+    .btn {
+        padding: 0.65rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .d-flex.gap-3 {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.form-control:focus-visible,
+.form-select:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid rgba(124, 139, 109, 0.3);
+    outline-offset: 2px;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ========================================
+   LOADING STATE
+   ======================================== */
+.btn.loading {
+    position: relative;
+    color: transparent;
+    pointer-events: none;
+}
+
+.btn.loading::after {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}

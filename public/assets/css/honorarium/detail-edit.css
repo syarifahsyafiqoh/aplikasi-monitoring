@@ -1,0 +1,392 @@
+/* ========================================
+   HONORARIUM DETAIL & EDIT CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   Semua class SPESIFIK untuk honorarium
+   ======================================== */
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.hon-page-header {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 22px rgba(124, 139, 109, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.hon-page-header-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.hon-page-header-text h4 {
+    margin: 0 0 0.2rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.hon-page-header-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header untuk Edit (warna hijau sama dengan detail) */
+.hon-page-header-edit {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+}
+
+/* ========================================
+   MAIN CARD
+   ======================================== */
+.hon-main-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e8eee7;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    animation: honFadeIn 0.4s ease-out;
+}
+
+/* ========================================
+   SECTION HEADER (dalam card)
+   ======================================== */
+.hon-section-head {
+    background: #f5f8f4;
+    border-top: 2px solid #e8eee7;
+    border-bottom: 2px solid #e8eee7;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #65785f;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.hon-main-card > .hon-section-head:first-child {
+    border-top: none;
+}
+
+.hon-section-head i {
+    color: #7C8B6D;
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   CARD BODY
+   ======================================== */
+.hon-card-body {
+    padding: 1.75rem;
+}
+
+/* ========================================
+   FIELD ITEM (untuk detail)
+   ======================================== */
+.hon-field {
+    background: #fbfcfb;
+    border: 1px solid #dde6dc;
+    border-radius: 11px;
+    padding: 0.95rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.hon-field-label {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #65785f;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.hon-field-label i {
+    color: #7C8B6D;
+    font-size: 0.95rem;
+}
+
+.hon-field-value {
+    font-size: 0.97rem;
+    color: #1f2a24;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: block;
+}
+
+/* Seksi badge */
+.hon-seksi-badge {
+    display: inline-block;
+    padding: 0.35rem 0.875rem;
+    background: linear-gradient(135deg, #889063 0%, #7C8B6D 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+/* No Akun badge */
+.hon-akun-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: rgba(124, 139, 109, 0.1);
+    color: #7C8B6D;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+}
+
+/* ========================================
+   CURRENCY FIELDS
+   ======================================== */
+.hon-field-bruto .hon-field-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2f7dd3;
+    font-family: 'Courier New', monospace;
+}
+
+.hon-field-netto .hon-field-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2f8f55;
+    font-family: 'Courier New', monospace;
+}
+
+/* ========================================
+   FORM FIELDS (untuk edit/input)
+   ======================================== */
+.hon-form-label {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: #5a6e53;
+    margin-bottom: 0.55rem;
+    display: block;
+}
+
+.hon-form-required {
+    color: #dc3545;
+    margin-left: 2px;
+}
+
+.hon-form-input,
+.hon-form-textarea {
+    width: 100%;
+    border: 2px solid #dde6dc;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #fbfcfb;
+    color: #2c3e50;
+}
+
+.hon-form-input:focus,
+.hon-form-textarea:focus {
+    outline: none;
+    border-color: #7C8B6D;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(124, 139, 109, 0.12);
+}
+
+.hon-form-textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+/* Input number untuk currency */
+.hon-form-input[type="number"] {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+.hon-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 2px solid #e8eee7;
+    flex-wrap: wrap;
+}
+
+/* Tombol detail */
+.btn-hon-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: #e8eee7;
+    color: #4d5a4f;
+    border: 2px solid #dde6dc;
+    transition: all 0.2s ease;
+}
+
+.btn-hon-back:hover {
+    background: #dde6dc;
+    color: #4d5a4f;
+    transform: translateY(-1px);
+}
+
+.btn-hon-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #212529;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+}
+
+.btn-hon-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 193, 7, 0.4);
+    color: #212529;
+}
+
+/* Tombol form edit */
+.hon-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 2px solid #e8eee7;
+}
+
+.btn-hon-cancel {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: #e8eee7;
+    color: #4d5a4f;
+    border: 2px solid #dde6dc;
+    transition: all 0.2s ease;
+}
+
+.btn-hon-cancel:hover {
+    background: #dde6dc;
+    color: #4d5a4f;
+    transform: translateY(-1px);
+}
+
+.btn-hon-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    color: #ffffff;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(124, 139, 109, 0.3);
+    cursor: pointer;
+}
+
+.btn-hon-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(124, 139, 109, 0.4);
+    color: #ffffff;
+}
+
+/* ========================================
+   ANIMATION
+   ======================================== */
+@keyframes honFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .hon-page-header {
+        padding: 1.3rem 1.5rem;
+    }
+
+    .hon-page-header-text h4 {
+        font-size: 1.25rem;
+    }
+
+    .hon-card-body {
+        padding: 1.25rem;
+    }
+
+    .hon-actions,
+    .hon-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-hon-back,
+    .btn-hon-edit,
+    .btn-hon-cancel,
+    .btn-hon-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .hon-page-header-icon {
+        display: none;
+    }
+}
+
+/* ========================================
+   PRINT
+   ======================================== */
+@media print {
+    .hon-actions,
+    .hon-form-actions { display: none; }
+    .hon-main-card { box-shadow: none; border: 1px solid #dee2e6; }
+    .hon-page-header {
+        background: #7C8B6D !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

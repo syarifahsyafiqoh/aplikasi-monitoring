@@ -1,0 +1,331 @@
+/* ========================================
+   VERIFIKASI BERKAS CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.verifikasi-header {
+    background: #ffffff;
+    border: 1px solid #e8eee7;
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 22px rgba(100, 136, 144, 0.2);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */
+}
+
+.verifikasi-header h3 {
+    color: #f7fbf9;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 0 0.25rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.verifikasi-header h3 i {
+    font-size: 1.6rem;
+}
+
+.verifikasi-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.badge.text-bg-light {
+    background: linear-gradient(135deg, #f5f8f4 0%, #e8f0ea 100%) !important;
+    color: #7C8B6D !important;
+    border: 2px solid #7C8B6D !important;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 10px;
+}
+
+/* ========================================
+   DATA TABLE CARD
+   ======================================== */
+.verifikasi-card {
+    background: #ffffff;
+    border: 1px solid #e8eee7 !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.verifikasi-card .card-body {
+    padding: 0 !important;
+}
+
+/* ========================================
+   TABLE STYLING
+   ======================================== */
+#table-verifikasi {
+    width: 100% !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 0 !important;
+}
+
+#table-verifikasi thead th {
+    background: linear-gradient(135deg, #6D8B7C 0%, #638890 100%) ;
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem !important;
+    border: none !important;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+#table-verifikasi tbody td {
+    padding: 1rem !important;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.875rem;
+    color: #495057;
+}
+
+#table-verifikasi tbody tr {
+    transition: all 0.3s ease;
+}
+
+#table-verifikasi tbody tr:hover {
+    background: #f8f9fa;
+}
+
+#table-verifikasi tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Kolom uraian bisa wrap */
+#table-verifikasi tbody td:nth-child(4) {
+    white-space: normal !important;
+    min-width: 280px;
+    line-height: 1.5;
+}
+
+/* No berkas bold */
+#table-verifikasi .fw-semibold {
+    font-weight: 700 !important;
+    color: #2c3e50 !important;
+}
+
+/* ========================================
+   BUTTON VERIFIKASI
+   ======================================== */
+.btn-verifikasi {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #f2feee 0%, #c8d7cc 100%) !important;
+    color: #6e7b61 !important;
+    border: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(124, 139, 109, 0.25);
+}
+
+.btn-verifikasi:hover {
+    background: linear-gradient(135deg, #6d7c5f 0%, #7a8057 100%);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124, 139, 109, 0.35);
+}
+
+.btn-verifikasi i {
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   DATATABLE CONTROLS
+   ======================================== */
+.dataTables_wrapper {
+    padding: 1.5rem;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 1rem;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label {
+    font-size: 0.875rem;
+    color: #495057;
+    font-weight: 500;
+}
+
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    border: 2px solid #dde6dc;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    background: #fbfcfb;
+    font-size: 0.875rem;
+    color: #495057;
+    transition: all 0.2s ease;
+    margin-left: 0.5rem;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus,
+.dataTables_wrapper .dataTables_length select:focus {
+    outline: none;
+    border-color: #7C8B6D;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(124, 139, 109, 0.1);
+}
+
+.dataTables_wrapper .dataTables_info {
+    color: #6c757d;
+    font-size: 0.875rem;
+    padding-top: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 1rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0.5rem 0.875rem !important;
+    margin: 0 0.25rem !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 8px !important;
+    color: #495057 !important;
+    background: #ffffff !important;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: #7C8B6D !important;
+    color: #ffffff !important;
+    border-color: #7C8B6D !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.dataTables_wrapper .dataTables_processing {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    color: #7C8B6D;
+    font-weight: 600;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.verifikasi-header,
+.verifikasi-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .verifikasi-header {
+        padding: 1.25rem 1.5rem;
+    }
+
+    .verifikasi-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .badge.text-bg-light {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem !important;
+    }
+
+    .dataTables_wrapper {
+        padding: 1rem;
+    }
+
+    #table-verifikasi thead th {
+        padding: 0.75rem 0.5rem !important;
+        font-size: 0.8rem;
+    }
+
+    #table-verifikasi tbody td {
+        padding: 0.75rem 0.5rem !important;
+        font-size: 0.8rem;
+    }
+
+    #table-verifikasi tbody td:nth-child(4) {
+        min-width: 200px;
+    }
+
+    .btn-verifikasi {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .verifikasi-header h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #7C8B6D;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #889063;
+}

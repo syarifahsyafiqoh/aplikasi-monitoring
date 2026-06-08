@@ -1,0 +1,308 @@
+/* ========================================
+   FORM INPUT HONORARIUM CSS
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* CSS ini sama dengan form input lainnya */
+/* Menggunakan styling yang konsisten */
+
+/* ========================================
+   PAGE HEADER FORM
+   ======================================== */
+.page-header-form {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 8px 20px rgba(124, 139, 109, 0.25);
+}
+
+.header-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #DCE1D9;
+    flex-shrink: 0;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.header-title {
+    color: #DCE1D9;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem 0;
+}
+
+.header-subtitle {
+    color: rgba(220, 225, 217, 0.9);
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* ========================================
+   FORM CONTAINER
+   ======================================== */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   FORM GROUPS
+   ======================================== */
+.form-group {
+    margin-bottom: 1.75rem;
+}
+
+.form-label {
+    color: #495057;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.required {
+    color: #dc3545;
+    font-weight: 700;
+}
+
+.form-control,
+.form-select {
+    padding: 0.875rem 1.25rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #7C8B6D;
+    box-shadow: 0 0 0 0.2rem rgba(124, 139, 109, 0.15);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #adb5bd;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+.form-text {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #889063;
+    font-weight: 500;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    width: 100%;
+}
+
+.input-group-text {
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-right: none;
+    color: #7C8B6D;
+    font-weight: 700;
+    padding: 0.875rem 1.25rem;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+}
+
+.input-group .form-control {
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+}
+
+.input-group .form-control:focus {
+    border-left: none;
+}
+
+/* Validation */
+.invalid-feedback {
+    display: none;
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.was-validated .form-control:invalid,
+.was-validated .form-select:invalid {
+    border-color: #dc3545;
+}
+
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-select:invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.was-validated .form-control:valid,
+.was-validated .form-select:valid {
+    border-color: #28a745;
+}
+
+/* ========================================
+   FORM ACTIONS
+   ======================================== */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+    border-top: 2px solid #f0f0f0;
+}
+
+.btn-cancel,
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background: #ffffff;
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+
+.btn-cancel:hover {
+    background: #f8f9fa;
+    color: #495057;
+    border-color: #adb5bd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(124, 139, 109, 0.3);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .page-header-form {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .header-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+    }
+
+    .form-card {
+        padding: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-container {
+        padding: 0;
+    }
+
+    .form-card {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .input-group-text {
+        padding: 0.75rem 1rem;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        padding: 0.75rem 2rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-card {
+    animation: slideIn 0.5s ease-out;
+}

@@ -1,0 +1,357 @@
+/* ========================================
+   DETAIL PERJALANAN DINAS CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* ========================================
+   DETAIL CARD STYLING
+   ======================================== */
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: none !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%) !important;
+    padding: 2rem !important;
+    border: none;
+}
+
+.card-header h3 {
+    color: #DCE1D9 !important;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-header h3 i {
+    font-size: 2rem;
+}
+
+.card-body {
+    padding: 3rem !important;
+}
+
+/* ========================================
+   DETAIL FIELD STYLING
+   ======================================== */
+label.fw-bold.text-success,
+label.fw-bold.text-primary {
+    color: #7C8B6D !important;
+    font-size: 0.95rem;
+    font-weight: 700 !important;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-control-plaintext {
+    background: #f8f9fa !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+    color: #2c3e50;
+    font-size: 1rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Larger text for important values */
+.fs-5 {
+    font-size: 1.1rem !important;
+}
+
+/* ========================================
+   BADGE STYLING
+   ======================================== */
+.badge {
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.bg-primary {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%) !important;
+    color: #ffffff;
+    border: 1px solid rgba(124, 139, 109, 0.3);
+}
+
+.badge.bg-info {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%) !important;
+    color: #ffffff;
+    border: 1px solid rgba(23, 162, 184, 0.3);
+}
+
+/* ========================================
+   FINANCIAL VALUES STYLING
+   ======================================== */
+.text-primary,
+.text-warning,
+.text-info,
+.text-success {
+    color: #2c3e50 !important;
+}
+
+.text-dark {
+    color: #2c3e50 !important;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+/* ========================================
+   TOTAL SUMMARY BOX
+   ======================================== */
+.alert {
+    border-radius: 12px !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #e8f5e9 0%, #f0f4ed 100%) !important;
+    border-left: 5px solid #7C8B6D !important;
+}
+
+.alert-success h4 {
+    color: #7C8B6D !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.alert-success strong {
+    color: #2c3e50 !important;
+    font-size: 1.75rem;
+}
+
+/* ========================================
+   BUTTON STYLING
+   ======================================== */
+.btn {
+    padding: 0.875rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-lg {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.2);
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(108, 117, 125, 0.3);
+    color: #ffffff;
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+.btn i {
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   GRID SPACING
+   ======================================== */
+.row.g-4 {
+    gap: 1.5rem;
+}
+
+.col-12,
+.col-md-4,
+.col-md-6 {
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   SECTION DIVIDER
+   ======================================== */
+.mt-4 {
+    margin-top: 2rem !important;
+}
+
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+/* ========================================
+   MULTILINE TEXT SUPPORT
+   ======================================== */
+.form-control-plaintext {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ========================================
+   HIGHLIGHT BOXES
+   ======================================== */
+.highlight-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #7C8B6D;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-box h5 {
+    color: #7C8B6D;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   PRINT STYLING
+   ======================================== */
+@media print {
+    .btn {
+        display: none;
+    }
+    
+    .card {
+        box-shadow: none;
+    }
+    
+    .card-header {
+        background: #7C8B6D !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .alert-success {
+        background: #e8f5e9 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .card-header {
+        padding: 1.5rem !important;
+    }
+    
+    .card-header h3 {
+        font-size: 1.35rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .card-header h3 i {
+        font-size: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    .fw-bold {
+        font-size: 0.9rem;
+    }
+    
+    .form-control-plaintext {
+        font-size: 0.9rem;
+        padding: 0.875rem !important;
+    }
+    
+    .fs-5 {
+        font-size: 1rem !important;
+    }
+    
+    .alert-success h4 {
+        font-size: 1.1rem;
+    }
+    
+    .alert-success strong {
+        font-size: 1.3rem;
+        display: block;
+        margin-top: 0.5rem;
+    }
+    
+    .btn-lg {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    
+    .text-end {
+        text-align: center !important;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+.btn:focus-visible {
+    outline: 3px solid rgba(124, 139, 109, 0.3);
+    outline-offset: 2px;
+}
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ========================================
+   ANIMATION
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+.empty-value {
+    color: #adb5bd;
+    font-style: italic;
+}

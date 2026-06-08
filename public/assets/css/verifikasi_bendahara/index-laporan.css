@@ -1,0 +1,348 @@
+/* ========================================
+   LAPORAN BERKAS CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   ======================================== */
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.laporan-header {
+    background: #ffffff;
+    border: 1px solid #e8eee7;
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.laporan-header h3 {
+    color: #f7fbf9;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.laporan-header h3 i {
+    color: #f7fbf9;
+    font-size: 1.6rem;
+}
+
+.btn-print {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    /* background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%); */
+    background: linear-gradient(135deg, #e8f5e9 0%, #f0f4ed 100%);
+    color: #2f8f55;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(124, 139, 109, 0.3);
+}
+
+.btn-print:hover {
+    background: linear-gradient(135deg, #6d7c5f 0%, #7a8057 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(124, 139, 109, 0.4);
+}
+
+.btn-print i {
+    font-size: 1rem;
+}
+
+/* ========================================
+   STAT CARD
+   ======================================== */
+.stat-total-card {
+    background: #ffffff;
+    border: 1px solid #e8eee7;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.stat-total-content h6 {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-total-content h2 {
+    color: #7C8B6D;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.stat-total-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f0f4ed 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: #2f8f55;
+}
+
+/* ========================================
+   CARD STYLING
+   ======================================== */
+.laporan-card {
+    background: #ffffff;
+    border: 1px solid #e8eee7 !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+.laporan-card .card-header {
+    background: linear-gradient(135deg, #6D8B7C 0%, #638890 100%) !important;
+    border: none !important;
+    padding: 1rem 1.5rem !important;
+}
+
+.laporan-card .card-header h5 {
+    color: #ffffff !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.laporan-card .card-body {
+    padding: 0 !important;
+}
+
+/* ========================================
+   TABLE STYLING
+   ======================================== */
+.table-responsive {
+    padding: 1.5rem;
+}
+
+.laporan-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 0 !important;
+}
+
+.laporan-table thead th {
+    background: #f5f8f4;
+    color: #65785f;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border: 1px solid #e8eee7;
+    white-space: nowrap;
+}
+
+.laporan-table tbody td {
+    padding: 1rem;
+    border: 1px solid #e8eee7;
+    font-size: 0.875rem;
+    color: #495057;
+    vertical-align: middle;
+}
+
+.laporan-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.laporan-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* No berkas bold */
+.laporan-table tbody td strong {
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* Text center untuk kolom jumlah */
+.text-center-custom {
+    text-align: center !important;
+}
+
+/* Badge status */
+.badge-verified {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+.empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem !important;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.laporan-header,
+.stat-total-card,
+.laporan-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.laporan-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.laporan-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* ========================================
+   PRINT STYLING
+   ======================================== */
+@media print {
+    .btn-print {
+        display: none !important;
+    }
+
+    .laporan-header {
+        border: 1px solid #dee2e6;
+        box-shadow: none;
+    }
+
+    .stat-total-card,
+    .laporan-card {
+        box-shadow: none;
+        border: 1px solid #dee2e6 !important;
+        page-break-inside: avoid;
+    }
+
+    .laporan-card .card-header {
+        background: #7C8B6D !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .badge-verified {
+        background: #28a745 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+@media (max-width: 768px) {
+    .laporan-header {
+        padding: 1.25rem 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .laporan-header h3 {
+        font-size: 1.25rem;
+    }
+
+    .btn-print {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stat-total-card {
+        padding: 1.25rem 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .stat-total-content h2 {
+        font-size: 2rem;
+    }
+
+    .stat-total-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+
+    .table-responsive {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+
+    .laporan-table thead th,
+    .laporan-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .laporan-header h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #7C8B6D;
+    border-radius: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #889063;
+}

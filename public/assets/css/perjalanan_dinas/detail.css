@@ -1,0 +1,345 @@
+/* ========================================
+   DETAIL PERJALANAN DINAS CSS - BPDAS Barito
+   Color Palette: #7C8B6D, #DCE1D9, #889063
+   Semua class SPESIFIK agar tidak override Bootstrap global
+   ======================================== */
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.detail-page-header {
+    background: linear-gradient(135deg, #7C8B6D 0%, #889063 100%);
+    border-radius: 16px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 22px rgba(124, 139, 109, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.detail-page-header-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.detail-page-header-text h4 {
+    margin: 0 0 0.2rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.detail-page-header-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   MAIN CARD
+   ======================================== */
+.detail-main-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e8eee7;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    animation: pdFadeIn 0.4s ease-out;
+}
+
+/* ========================================
+   SECTION HEADER (dalam card)
+   ======================================== */
+.detail-section-head {
+    background: #f5f8f4;
+    border-top: 2px solid #e8eee7;
+    border-bottom: 2px solid #e8eee7;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #65785f;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Section head pertama tidak perlu border-top */
+.detail-main-card > .detail-section-head:first-child {
+    border-top: none;
+}
+
+.detail-section-head i {
+    color: #7C8B6D;
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   CARD BODY WRAPPER
+   ======================================== */
+.detail-card-body {
+    padding: 1.75rem;
+}
+
+/* ========================================
+   FIELD ITEM
+   ======================================== */
+.detail-field {
+    background: #fbfcfb;
+    border: 1px solid #dde6dc;
+    border-radius: 11px;
+    padding: 0.95rem 1rem;
+    /* agar field dalam d-flex col meregang penuh */
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-field-label {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #65785f;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.detail-field-label i {
+    color: #7C8B6D;
+    font-size: 0.95rem;
+}
+
+.detail-field-value {
+    font-size: 0.97rem;
+    color: #1f2a24;
+    font-weight: 500;
+    margin: 0;
+    line-height: 0.5;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+/* Badge sumber dana */
+/* .pd-badge {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    padding: 0.3rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+} */
+
+/* .pd-badge-primary {
+    background: linear-gradient(135deg, #7C8B6D, #889063);
+    color: #ffffff;
+} */
+
+/* .pd-badge-info {
+    background: linear-gradient(135deg, #17a2b8, #138496);
+    color: #ffffff;
+} */
+
+/* Seksi badge */
+/* .pd-seksi-badge {
+    display: inline-block;
+    padding: 0.35rem 0.875rem;
+    background: linear-gradient(135deg, #889063 0%, #7C8B6D 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.82rem;
+} */
+
+/* Akun badge */
+/* .pd-akun-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: rgba(124, 139, 109, 0.1);
+    color: #7C8B6D;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+} */
+
+/* ========================================
+   CURRENCY FIELDS (Harian, Penginapan, Transport)
+   ======================================== */
+.detail-field-currency .detail-field-value {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2f8f55;
+    font-family: 'Courier New', monospace;
+}
+
+/* ========================================
+   TOTAL BOX
+   ======================================== */
+.detail-total-box {
+    background: linear-gradient(135deg, #f0f6f2 0%, #e8f0ea 100%);
+    border: 2px solid #b5d4be;
+    border-radius: 14px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.detail-total-box-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4d6e55;
+}
+
+.detail-total-box-label i {
+    font-size: 1.4rem;
+    color: #7C8B6D;
+}
+
+.detail-total-box-value {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #1f5c33;
+    font-family: 'Courier New', monospace;
+}
+
+/* ========================================
+   ACTION BUTTONS
+   ======================================== */
+.detail-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 2px solid #e8eee7;
+    flex-wrap: wrap;
+}
+
+.btn-detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: #e8eee7;
+    color: #4d5a4f;
+    border: 2px solid #dde6dc;
+    transition: all 0.2s ease;
+}
+
+.btn-detail-back:hover {
+    background: #dde6dc;
+    color: #4d5a4f;
+    transform: translateY(-1px);
+}
+
+.btn-detail-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    color: #212529;
+    border: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+}
+
+.btn-detail-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 193, 7, 0.4);
+    color: #212529;
+}
+
+/* ========================================
+   ANIMATION
+   ======================================== */
+@keyframes pdFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+    .detail-page-header {
+        padding: 1.3rem 1.5rem;
+    }
+
+    .detail-page-header-text h4 {
+        font-size: 1.25rem;
+    }
+
+    .detail-card-body {
+        padding: 1.25rem;
+    }
+
+    .detail-total-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.25rem;
+    }
+
+    .detail-total-box-value {
+        font-size: 1.35rem;
+    }
+
+    .detail-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-detail-back,
+    .btn-detail-edit {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .detail-page-header-icon {
+        display: none;
+    }
+}
+
+/* ========================================
+   PRINT
+   ======================================== */
+@media print {
+    .detail-actions { display: none; }
+    .detail-main-card { box-shadow: none; border: 1px solid #dee2e6; }
+    .detail-page-header {
+        background: #7C8B6D !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

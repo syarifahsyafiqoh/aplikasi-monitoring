@@ -1,0 +1,42 @@
+@media print {
+    .print-header {
+        position: running(header);  /* membuatnya jadi running header (hanya halaman pertama) */
+        margin-bottom: 20px;
+        text-align: center;
+        border-bottom: 2px solid #000;
+        padding-bottom: 15px;
+    }
+    .print-logo {
+        max-width: 120px;
+        margin-bottom: 10px;
+    }
+    .print-kop {
+        font-size: 10pt;
+        line-height: 1.4;
+    }
+
+    /* Halaman selanjutnya tidak pakai kop */
+    @page :first {
+        @top-center {
+            content: element(header);
+        }
+    }
+
+    @page {
+        margin: 2cm 1.5cm;
+    }
+
+    /* Sembunyikan elemen lain */
+    .no-print, .sidebar, .navbar, .btn, footer { 
+        display: none !important; 
+    }
+
+    table { 
+        width: 100%; 
+        border-collapse: collapse; 
+    }
+    th, td { 
+        border: 1px solid #000 !important; 
+        padding: 8px !important; 
+    }
+}

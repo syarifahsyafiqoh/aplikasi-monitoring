@@ -1,0 +1,323 @@
+/* Detail Verifikasi Berkas */
+
+.detail-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.detail-header {
+    background: linear-gradient(135deg, #6D8B7C 0%, #638890 100%);
+    border-radius: 18px;
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 22px rgba(100, 136, 144, 0.2);
+    color: #f7fbf9;
+}
+
+.detail-header h4 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.detail-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8eee7;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.detail-card-body {
+    padding: 1.5rem;
+}
+
+/* Info Berkas Section */
+.info-berkas-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    background: #fbfcfb;
+    border: 1px solid #e8eee7;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+.info-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #65785f;
+    margin-bottom: 0.5rem;
+}
+
+.info-label i {
+    color: #6D8B7C;
+    font-size: 1rem;
+}
+
+.info-value {
+    font-size: 1.05rem;
+    color: #1f2a24;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Detail Modul Section */
+.section-header {
+    background: #f5f8f4;
+    border-bottom: 2px solid #e8eee7;
+    padding: 1rem 1.5rem;
+    margin: 0;
+}
+
+.section-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #65785f;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-header i {
+    color: #6D8B7C;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.detail-grid.two-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.detail-grid.full-col {
+    grid-template-columns: 1fr;
+}
+
+.detail-item {
+    background: #fbfcfb;
+    border: 1px solid #dde6dc;
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #65785f;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.detail-value {
+    font-size: 1rem;
+    color: #1f2a24;
+    font-weight: 600;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+.detail-value.currency {
+    color: #2f8f55;
+    font-weight: 700;
+}
+
+.detail-item.highlight-total {
+    background-color: #e9f7ff;
+    border: 2px solid #4dabf7;
+    padding: 12px !important;
+}
+.detail-item.highlight-total .detail-label {
+    font-weight: bold;
+    color: #0056b3;
+}
+.detail-item.highlight-total .detail-value {
+    font-size: 1.2rem !important;
+}
+
+/* Verifikasi Form Section */
+.verifikasi-section {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8eee7;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
+}
+
+.verifikasi-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #65785f;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.verifikasi-title i {
+    color: #6D8B7C;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label-custom {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #4d5a4f;
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+.form-select-custom,
+.form-textarea-custom {
+    width: 100%;
+    border: 2px solid #dde6dc;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #fbfcfb;
+}
+
+.form-select-custom:focus,
+.form-textarea-custom:focus {
+    outline: none;
+    border-color: #6D8B7C;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(109, 139, 124, 0.1);
+}
+
+.form-textarea-custom {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e8eee7;
+}
+
+.btn-custom {
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-secondary-custom {
+    background: #e8eee7;
+    color: #4d5a4f;
+    border: 1px solid #dde6dc;
+}
+
+.btn-secondary-custom:hover {
+    background: #dde6dc;
+    transform: translateY(-1px);
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, #6D8B7C 0%, #638890 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(109, 139, 124, 0.3);
+}
+
+.btn-primary-custom:hover {
+    box-shadow: 0 6px 16px rgba(109, 139, 124, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Badge Styles */
+.badge-module {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: #ebf7ef;
+    color: #2f8f55;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .info-berkas-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .detail-header {
+        padding: 1.3rem 1.5rem;
+    }
+
+    .detail-header h4 {
+        font-size: 1.4rem;
+    }
+
+    .detail-card-body,
+    .verifikasi-section {
+        padding: 1.25rem;
+    }
+
+    .detail-grid,
+    .detail-grid.two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .btn-custom {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575px) {
+    .info-item {
+        padding: 0.85rem 1rem;
+    }
+
+    .detail-item {
+        padding: 0.75rem 0.9rem;
+    }
+}
