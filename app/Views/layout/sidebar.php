@@ -122,6 +122,9 @@ $isKelolaUser = str_contains($currentPath, 'kelola-user');
                     <i class="bi bi-people"></i>
                     <span>Kelola User</span>
                 </a>
+                <a href="<?= base_url('workflow') ?>" class="nav-link text-white py-3 px-3 rounded mb-2 <?= (strpos(current_url(), 'workflow') !== false) ? 'bg-white text-success' : 'opacity-75' ?>">
+                    <i class="bi bi-diagram-3 me-3"></i> Pengaturan Workflow
+                </a>
             <?php endif; ?>
         </nav>
 

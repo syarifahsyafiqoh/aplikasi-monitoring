@@ -139,4 +139,12 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
 
     // Export PDF (bisa per halaman atau satu untuk semua)
     $routes->get('laporan-operator/export', 'OperatorLaporan::exportPdf');
+
+    // === WORKFLOW MANAGEMENT ===
+    $routes->get('workflow', 'WorkflowController::index');
+    $routes->get('workflow/form', 'WorkflowController::form');
+    $routes->get('workflow/form/(:num)', 'WorkflowController::form/$1');
+    $routes->post('workflow/save', 'WorkflowController::save');
+    $routes->delete('workflow/delete/(:num)', 'WorkflowController::delete/$1');
+
 });

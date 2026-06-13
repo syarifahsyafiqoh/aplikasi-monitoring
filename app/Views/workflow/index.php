@@ -34,12 +34,15 @@
                                 <?= $w['is_active'] ? '<span class="badge bg-success">Aktif</span>' : '<span class="badge bg-secondary">Nonaktif</span>' ?>
                             </td>
                             <td>
-                                <?php
-                                $steps = $this->workflowStepModel->where('workflow_id', $w['id'])
-                                        ->orderBy('urutan')->findAll();
-                                foreach ($steps as $step) {
-                                    echo '<span class="badge bg-info me-1">' . ucfirst($step['role']) . '</span>';
-                                }
+                                <?php 
+                                // Ambil steps dari data yang sudah dikirim controller
+                                if (!empty($w['steps'])):
+                                    foreach ($w['steps'] as $step): ?>
+                                        <span class="badge bg-info me-1"><?= ucfirst($step['role']) ?></span>
+                                    <?php endforeach;
+                                else: 
+                                    echo '<span class="text-muted">Belum ada langkah</span>';
+                                endif; 
                                 ?>
                             </td>
                             <td>
@@ -61,8 +64,9 @@
 <script>
 function hapusWorkflow(id) {
     if (confirm('Yakin menghapus workflow ini?')) {
-        fetch(`<?= base_url('workflow/delete') ?>/${id}`, { method: 'DELETE' })
-            .then(() => location.reload());
+        fetch(`<?= base_url('workflow/delete') ?>/${id}`, { 
+            method: 'DELETE' 
+        }).then(() => location.reload());
     }
 }
 </script>

@@ -30,6 +30,14 @@ class WorkflowController extends BaseController
 
         $workflows = $this->workflowModel->findAll();
 
+        // Ambil steps untuk setiap workflow
+        foreach ($workflows as &$w) {
+            $w['steps'] = $this->workflowStepModel
+                            ->where('workflow_id', $w['id'])
+                            ->orderBy('urutan', 'ASC')
+                            ->findAll();
+        }
+
         $data = [
             'title'     => 'Pengelolaan Workflow Approval',
             'workflows' => $workflows
@@ -62,22 +70,27 @@ class WorkflowController extends BaseController
             return redirect()->to('/dashboard');
         }
 
-        $id = $this->request->getPost('id');
+        $jenisModul = $this->request->getPost('jenis_modul');
 
-        $workflowData = [
-            'nama_workflow' => $this->request->getPost('nama_workflow'),
-            'jenis_modul'   => $this->request->getPost('jenis_modul'),
-            'is_active'     => $this->request->getPost('is_active') ?? 1,
-        ];
+        // Cek apakah workflow untuk modul ini sudah ada
+        $existing = $this->workflowModel->where('jenis_modul', $jenisModul)->first();
 
-        if ($id) {
-            $this->workflowModel->update($id, $workflowData);
+        if ($existing) {
+            $id = $existing['id'];
+            $this->workflowModel->update($id, [
+                'nama_workflow' => $this->request->getPost('nama_workflow'),
+                'is_active'     => $this->request->getPost('is_active') ?? 1,
+            ]);
         } else {
-            $id = $this->workflowModel->insert($workflowData);
+            $id = $this->workflowModel->insert([
+                'nama_workflow' => $this->request->getPost('nama_workflow'),
+                'jenis_modul'   => $jenisModul,
+                'is_active'     => $this->request->getPost('is_active') ?? 1,
+            ]);
         }
 
-        // Simpan steps (urutan approval)
-        $this->workflowStepModel->where('workflow_id', $id)->delete(); // hapus dulu
+        // Hapus steps lama dan buat yang baru
+        $this->workflowStepModel->where('workflow_id', $id)->delete();
 
         $roles = $this->request->getPost('role');
         $urutan = 1;

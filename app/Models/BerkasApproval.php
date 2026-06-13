@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class BerkasApproval extends Model
 {
-    protected $table            = 'berkasapprovals';
+    protected $table            = 'berkas_approvals';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

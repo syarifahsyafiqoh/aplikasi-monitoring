@@ -3,6 +3,7 @@
 <link href="<?= base_url('assets/css/verifikasi_bendahara/detail.css') ?>" rel="stylesheet">
 
 <div class="detail-container">
+    <?php $berkas = $berkas ?? []; ?>
     <!-- Header -->
     <div class="detail-header">
         <h4><i class="bi bi-file-earmark-text me-2"></i>Detail & Verifikasi Berkas</h4>
@@ -11,21 +12,30 @@
     <!-- Info Berkas Utama -->
     <div class="info-berkas-grid">
         <div class="info-item">
-            <div class="info-label">
-                <i class="bi bi-hash"></i>
-                <span>No Berkas</span>
-            </div>
-            <p class="info-value"><?= esc($berkas['no_berkas']) ?></p>
+            <div class="info-label"><i class="bi bi-hash"></i> No Berkas</div>
+            <p class="info-value"><?= esc($berkas['no_berkas'] ?? '-') ?></p>
         </div>
         <div class="info-item">
-            <div class="info-label">
-                <i class="bi bi-folder"></i>
-                <span>Jenis Modul</span>
-            </div>
+            <div class="info-label"><i class="bi bi-folder"></i> Jenis Modul</div>
             <p class="info-value">
-                <span class="badge-module"><?= ucwords(str_replace('_', ' ', $berkas['jenis_modul'])) ?></span>
+                <span class="badge-module"><?= ucwords(str_replace('_', ' ', $berkas['jenis_modul'] ?? '')) ?></span>
             </p>
         </div>
+    </div>
+
+    <!-- Current Workflow Status -->
+    <div class="workflow-status mb-4">
+        <h5><i class="bi bi-diagram-3 me-2"></i> Status Approval Saat Ini</h5>
+        <?php if (!empty($current_step)): ?>
+            <div class="alert alert-warning">
+                <strong>Langkah <?= $current_step['urutan'] ?> :</strong> 
+                Menunggu Persetujuan <strong><?= ucfirst(str_replace('_', ' ', $current_step['role'])) ?></strong>
+            </div>
+        <?php elseif (!empty($approval_history)): ?>
+            <div class="alert alert-success">
+                Semua tahap approval sudah selesai.
+            </div>
+        <?php endif; ?>
     </div>
 
     <!-- Detail Modul -->
@@ -179,35 +189,61 @@
         <?php endif; ?>
     </div>
 
-    <div class="verifikasi-section">
-        <h5 class="verifikasi-title">
-            <i class="bi bi-check2-circle"></i>
-            Tindakan Verifikasi
-        </h5>
+    <!-- Riwayat Approval -->
+    <div class="approval-history mt-4">
+        <h5><i class="bi bi-clock-history me-2"></i> Riwayat Approval</h5>
+        <?php if (!empty($approval_history)): ?>
+            <div class="timeline">
+                <?php foreach ($approval_history as $log): ?>
+                    <div class="timeline-item">
+                        <div class="timeline-dot <?= $log['status'] ?>"></div>
+                        <div class="timeline-content">
+                            <strong>Langkah <?= $log['urutan'] ?> - <?= ucfirst(str_replace('_', ' ', $log['role'])) ?></strong>
+                            
+                            <?php if ($log['status'] === 'approved'): ?>
+                                <span class="badge bg-success">Disetujui</span>
+                            <?php elseif ($log['status'] === 'rejected'): ?>
+                                <span class="badge bg-danger">Ditolak</span>
+                            <?php else: ?>
+                                <span class="badge bg-warning">Menunggu</span>
+                            <?php endif; ?>
 
+                            <small class="text-muted"><?= date('d M Y H:i', strtotime($log['approved_at'] ?? $log['created_at'])) ?></small>
+                            
+                            <?php if (!empty($log['catatan'])): ?>
+                                <p class="mt-1 mb-0"><strong>Catatan:</strong> <?= esc($log['catatan']) ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php else: ?>
+            <p class="text-muted">Belum ada riwayat approval untuk berkas ini.</p>
+        <?php endif; ?>
+    </div>
+
+    <!-- Form Verifikasi -->
+    <div class="verifikasi-section">
+        <h5><i class="bi bi-check2-circle"></i> Tindakan Verifikasi</h5>
         <form id="form-verifikasi">
             <input type="hidden" name="id" value="<?= $berkas['id'] ?>">
 
             <div class="form-group">
-                <label class="form-label-custom">Status Verifikasi</label>
-                <select name="status" class="form-select-custom" required>
-                    <option value="diverifikasi">✓ Setujui / Diverifikasi</option>
+                <label>Status Verifikasi</label>
+                <select name="status" class="form-select" required>
+                    <option value="diverifikasi">✓ Setujui</option>
                     <option value="ditolak">✗ Tolak</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label class="form-label-custom">Catatan Bendahara <span style="color: #999; font-weight: 400;">(wajib jika tolak)</span></label>
-                <textarea name="catatan" class="form-textarea-custom" placeholder="Masukkan alasan penolakan atau catatan tambahan..."></textarea>
+                <label>Catatan Bendahara</label>
+                <textarea name="catatan" class="form-control" placeholder="Catatan atau alasan..."></textarea>
             </div>
 
             <div class="action-buttons">
-                <a href="<?= base_url('verifikasi-berkas') ?>" class="btn-custom btn-secondary-custom">
-                    <i class="bi bi-arrow-left"></i> Kembali
-                </a>
-                <button type="button" onclick="prosesVerifikasi()" class="btn-custom btn-primary-custom">
-                    <i class="bi bi-check2-circle"></i> Proses Verifikasi
-                </button>
+                <a href="<?= base_url('verifikasi-berkas') ?>" class="btn btn-secondary">Kembali</a>
+                <button type="button" onclick="prosesVerifikasi()" class="btn btn-primary">Proses Verifikasi</button>
             </div>
         </form>
     </div>

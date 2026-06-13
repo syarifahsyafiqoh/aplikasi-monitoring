@@ -82,48 +82,65 @@ class Dashboard extends BaseController
     }
 
     // Dashboard Bendahara
+    // public function bendahara()
+    // {
+    //     if (session()->get('role') !== 'bendahara') {
+    //         return redirect()->to('/dashboard');
+    //     }
+
+    //     $berkasModel = new \App\Models\BerkasModel();
+
+    //     // Hitung total menunggu verifikasi
+    //     $menunggu = $berkasModel->where('status', 'menunggu_persetujuan')->countAllResults();
+
+    //     // Hitung yang sudah diverifikasi
+    //     $diverifikasi = $berkasModel->where('status', 'diverifikasi')->countAllResults();
+
+    //     // Berkas terbaru
+    //     $berkas_terbaru = $berkasModel
+    //         ->select('berkas.*, users.username as operator_name')
+    //         ->join('users', 'users.id = berkas.operator_id', 'left')
+    //         ->orderBy('berkas.created_at', 'DESC')
+    //         ->limit(5)
+    //         ->findAll();
+
+    //     $data = [
+    //         'title' => 'Dashboard Bendahara',
+    //         'menunggu_verifikasi' => $menunggu,
+    //         'diverifikasi' => $diverifikasi,
+    //         'berkas_terbaru' => $berkas_terbaru,
+    //     ];
+
+    //     return view('dashboard/bendahara', $data);
+    // }
+
     public function bendahara()
-    {
-        if ($redirect = $this->requireLogin()) return $redirect;
-        if ($this->session->get('role') !== 'bendahara') {
-            return redirect()->to('/dashboard');
-        }
-
-        $berkasModel = new \App\Models\BerkasModel();
-
-        // Statistik utama
-        $menunggu_verifikasi = $berkasModel
-            ->where('status', 'menunggu_verifikasi')
-            ->countAllResults();
-
-        $diverifikasi_hari_ini = $berkasModel
-            ->where('status', 'diverifikasi')
-            ->where('DATE(verified_at)', date('Y-m-d'))
-            ->countAllResults();
-
-        $ditolak = $berkasModel
-            ->where('status', 'ditolak')
-            ->countAllResults();
-
-        // Berkas terbaru menunggu verifikasi (5 terakhir)
-        $berkas_terbaru = $berkasModel
-            ->select('berkas.*, users.username as operator_name')
-            ->join('users', 'users.id = berkas.operator_id', 'left')
-            ->where('berkas.status', 'menunggu_verifikasi')
-            ->orderBy('berkas.created_at', 'DESC')
-            ->limit(5)
-            ->findAll();
-
-        $data = [
-            'title'                  => 'Dashboard Bendahara',
-            'menunggu_verifikasi'    => $menunggu_verifikasi,
-            'diverifikasi_hari_ini'  => $diverifikasi_hari_ini,
-            'ditolak'                => $ditolak,
-            'berkas_terbaru'         => $berkas_terbaru,
-        ];
-
-        return view('dashboard/bendahara', $data);
+{
+    if ($redirect = $this->requireLogin()) return $redirect;
+    if ($this->session->get('role') !== 'bendahara') {
+        return redirect()->to('/dashboard');
     }
+
+    $berkasModel = new \App\Models\BerkasModel();
+
+    $data = [
+        'title'                  => 'Dashboard Bendahara',
+        'menunggu'               => $berkasModel->where('status', 'menunggu_verifikasi')->countAllResults(),
+        'diverifikasi_hari_ini'  => $berkasModel->where('status', 'diverifikasi')
+                                                 ->where('DATE(updated_at)', date('Y-m-d'))
+                                                 ->countAllResults(),
+        'ditolak'                => $berkasModel->where('status', 'ditolak')->countAllResults(),
+        'berkas_terbaru'         => $berkasModel
+                                    ->select('berkas.*, users.username as operator_name')
+                                    ->join('users', 'users.id = berkas.operator_id', 'left')
+                                    ->where('berkas.status', 'menunggu_verifikasi')
+                                    ->orderBy('berkas.created_at', 'DESC')
+                                    ->limit(5)
+                                    ->findAll()
+    ];
+
+    return view('dashboard/bendahara', $data);
+}
 
     // Dashboard Admin
     public function admin()

@@ -37,23 +37,74 @@ class GajiInduk extends BaseController
         return view('gaji_induk/input', $data);
     }
 
+    private function buatApprovalSteps($berkasId, $jenisModul)
+    {
+        $workflowModel = new \App\Models\Workflow();
+        $workflowStepModel = new \App\Models\WorkflowStep();
+        $berkasApprovalModel = new \App\Models\BerkasApproval();
+
+        // Ambil workflow untuk modul ini
+        $workflow = $workflowModel->where('jenis_modul', $jenisModul)->first();
+
+        if (!$workflow) {
+            // Jika belum ada workflow, buat default
+            $workflowId = $workflowModel->insert([
+                'nama_workflow' => 'Default ' . ucwords(str_replace('_', ' ', $jenisModul)),
+                'jenis_modul'   => $jenisModul,
+                'is_active'     => 1
+            ]);
+
+            // Default workflow: Operator → Bendahara → Kepala Balai
+            $defaultSteps = ['bendahara', 'kepala_balai'];
+            $urutan = 1;
+            foreach ($defaultSteps as $role) {
+                $workflowStepModel->insert([
+                    'workflow_id' => $workflowId,
+                    'urutan'      => $urutan++,
+                    'role'        => $role
+                ]);
+            }
+            $workflow = $workflowModel->find($workflowId);
+        }
+
+        // Ambil steps workflow
+        $steps = $workflowStepModel->where('workflow_id', $workflow['id'])
+                                ->orderBy('urutan', 'ASC')
+                                ->findAll();
+
+        // Buat record approval untuk setiap step
+        foreach ($steps as $step) {
+            $berkasApprovalModel->insert([
+                'berkas_id'        => $berkasId,
+                'workflow_step_id' => $step['id'],
+                'status'           => 'pending',
+                'created_at'       => date('Y-m-d H:i:s')
+            ]);
+        }
+    }
+
     public function simpan()
     {
-        $id_modul = $this->model->insert($this->request->getPost());
+        if (session()->get('role') !== 'operator') {
+            return redirect()->to('/dashboard')->with('error', 'Akses hanya untuk Operator!');
+        }
 
-        // Simpan ke tabel master berkas
+        $model = new GajiIndukModel();
+        $id_modul = $model->insert($this->request->getPost());
+
         $berkasModel = new BerkasModel();
-        $berkasModel->insert([
-            'no_berkas'       => 'GI-' . date('Y') . '-' . str_pad($id_modul, 4, '0', STR_PAD_LEFT), // prefix GI untuk Gaji Induk
+        $berkasId = $berkasModel->insert([
+            'no_berkas'       => 'GI-' . date('Y') . '-' . str_pad($id_modul, 4, '0', STR_PAD_LEFT),
             'jenis_modul'     => 'gaji_induk',
             'id_modul'        => $id_modul,
-            'status'          => 'menunggu_verifikasi',
+            'status'          => 'menunggu_persetujuan',
             'operator_id'     => session()->get('id'),
             'created_at'      => date('Y-m-d H:i:s')
         ]);
 
-        // Redirect dengan pesan sukses (WAJIB ADA!)
-        return redirect()->to('gaji-induk')->with('success', 'Gaji Induk berhasil disimpan!');
+        $this->buatApprovalSteps($berkasId, 'gaji_induk');
+
+        return redirect()->to('gaji-induk')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }
 
     public function edit($id)

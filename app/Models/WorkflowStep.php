@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class WorkflowStep extends Model
 {
-    protected $table            = 'workflowsteps';
+    protected $table            = 'workflow_steps';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

@@ -18,7 +18,7 @@
         </div>
         <div class="stat-content">
             <p class="stat-label">Menunggu Verifikasi</p>
-            <h2 class="stat-value"><?= number_format($menunggu_verifikasi ?? 0) ?></h2>
+            <h2 class="stat-value"><?= number_format($menunggu ?? 0) ?></h2>
             <span class="stat-badge badge-warning">Perlu segera diproses</span>
         </div>
     </div>
@@ -109,12 +109,10 @@
                             </td>
                             <td><?= date('d M Y H:i', strtotime($b['created_at'])) ?></td>
                             <td>
-                                <div class="action-group">
-                                    <a href="<?= base_url('verifikasi-berkas/detail/' . $b['id']) ?>" 
-                                       class="btn-action btn-view" title="Verifikasi">
-                                        <i class="bi bi-eye"></i>
-                                    </a>
-                                </div>
+                                <a href="<?= base_url('verifikasi-berkas/detail/' . $b['id']) ?>" 
+                                   class="btn btn-sm btn-primary">
+                                    <i class="bi bi-eye"></i> Verifikasi
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
