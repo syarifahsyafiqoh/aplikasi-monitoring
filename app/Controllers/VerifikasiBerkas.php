@@ -200,41 +200,164 @@ class VerifikasiBerkas extends BaseController
 
     // Proses Approval dengan Workflow
     public function proses($id)
-{
-    if (session()->get('role') !== 'bendahara') {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Akses ditolak']);
+    {
+        if (session()->get('role') !== 'bendahara') {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Akses ditolak']);
+        }
+
+        $post    = $this->request->getPost();
+        $status  = $post['status'] ?? ''; 
+        $catatan = $post['catatan'] ?? null;
+
+        if (!in_array($status, ['diverifikasi', 'ditolak'])) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Status tidak valid']);
+        }
+
+        // Update tabel berkas utama
+        $this->berkasModel->update($id, [
+            'status'            => $status,
+            'catatan_bendahara' => $catatan,
+            'updated_at'        => date('Y-m-d H:i:s')
+        ]);
+
+        // Update riwayat approval
+        $approvalModel = new \App\Models\BerkasApproval();
+        
+        $approvalModel->where('berkas_id', $id)
+                    ->where('role', 'bendahara')
+                    ->set([
+                        'status'      => ($status === 'diverifikasi') ? 'approved' : 'rejected',
+                        'approved_at' => date('Y-m-d H:i:s'),
+                        'catatan'     => $catatan
+                    ])
+                    ->update();
+
+        return $this->response->setJSON([
+            'status'  => 'success',
+            'message' => ($status === 'diverifikasi') ? 'Berkas berhasil diverifikasi!' : 'Berkas telah ditolak!'
+        ]);
     }
 
-    $post    = $this->request->getPost();
-    $status  = $post['status'] ?? ''; 
-    $catatan = $post['catatan'] ?? null;
+    // Halaman utama Kepala Balai
+    public function kepalaBalaiIndex()
+    {
+        if (session()->get('role') !== 'kepala_balai') {
+            return redirect()->to('/dashboard');
+        }
 
-    if (!in_array($status, ['diverifikasi', 'ditolak'])) {
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Status tidak valid']);
+        $data['title'] = 'Persetujuan Akhir - Kepala Balai';
+        return view('kepala_balai/index', $data);
     }
 
-    // Update tabel berkas utama
-    $this->berkasModel->update($id, [
-        'status'            => $status,
-        'catatan_bendahara' => $catatan,
-        'updated_at'        => date('Y-m-d H:i:s')
-    ]);
+    // Detail persetujuan
+    public function kepalaBalaiDetail($id)
+    {
+        if (session()->get('role') !== 'kepala_balai') {
+            return redirect()->to('/dashboard');
+        }
 
-    // Update riwayat approval
-    $approvalModel = new \App\Models\BerkasApproval();
-    
-    $approvalModel->where('berkas_id', $id)
-                  ->where('role', 'bendahara')
-                  ->set([
-                      'status'      => ($status === 'diverifikasi') ? 'approved' : 'rejected',
-                      'approved_at' => date('Y-m-d H:i:s'),
-                      'catatan'     => $catatan
-                  ])
-                  ->update();
+        $berkasModel = new \App\Models\BerkasModel();
+        $berkas = $berkasModel->select('berkas.*, users.username as operator_name')
+                            ->join('users', 'users.id = berkas.operator_id', 'left')
+                            ->find($id);
 
-    return $this->response->setJSON([
-        'status'  => 'success',
-        'message' => ($status === 'diverifikasi') ? 'Berkas berhasil diverifikasi!' : 'Berkas telah ditolak!'
-    ]);
-}
+        if (!$berkas || $berkas['status'] !== 'diverifikasi') {
+            return redirect()->to('persetujuan-kepala')->with('error', 'Berkas tidak ditemukan atau bukan tahap persetujuan Anda');
+        }
+
+        // Ambil detail modul
+        $detail = null;
+        switch ($berkas['jenis_modul']) {
+            case 'perjalanan_dinas': $model = new \App\Models\PerjalananDinasModel(); $detail = $model->find($berkas['id_modul']); break;
+            case 'gaji_induk': $model = new \App\Models\GajiIndukModel(); $detail = $model->find($berkas['id_modul']); break;
+            case 'tunjangan_kinerja': $model = new \App\Models\TunjanganKinerjaModel(); $detail = $model->find($berkas['id_modul']); break;
+            case 'uang_makan': $model = new \App\Models\UangMakanModel(); $detail = $model->find($berkas['id_modul']); break;
+            case 'honorarium': $model = new \App\Models\HonorariumModel(); $detail = $model->find($berkas['id_modul']); break;
+            case 'kontraktual': $model = new \App\Models\KontraktualModel(); $detail = $model->find($berkas['id_modul']); break;
+            case 'gup': $model = new \App\Models\GupModel(); $detail = $model->find($berkas['id_modul']); break;
+            // tambahkan case lain jika perlu
+        }
+
+        $data = [
+            'title'  => 'Persetujuan Akhir',
+            'berkas' => $berkas,
+            'detail' => $detail
+        ];
+
+        return view('kepala_balai/detail', $data);
+    }
+
+    // Proses Approve / Tolak oleh Kepala Balai
+    public function kepalaBalaiProses($id)
+    {
+        if (session()->get('role') !== 'kepala_balai') {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Akses ditolak']);
+        }
+
+        $status  = $this->request->getPost('status');
+        $catatan = $this->request->getPost('catatan');
+
+        if (!in_array($status, ['disetujui', 'ditolak'])) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Status tidak valid']);
+        }
+
+        $berkasModel = new \App\Models\BerkasModel();
+        $berkasModel->update($id, [
+            'status'            => $status,
+            'catatan_bendahara' => $catatan,
+            'updated_at'        => date('Y-m-d H:i:s')
+        ]);
+
+        return $this->response->setJSON([
+            'status'  => 'success',
+            'message' => ($status === 'disetujui') ? 'Berkas berhasil disetujui!' : 'Berkas telah ditolak!'
+        ]);
+    }
+
+    // Data untuk tabel Kepala Balai (AJAX)
+    public function kepalaBalaiData()
+    {
+        if (session()->get('role') !== 'kepala_balai') {
+            return $this->response->setJSON(['data' => []]);
+        }
+
+        $berkasModel = new \App\Models\BerkasModel();
+
+        $berkas = $berkasModel
+            ->select('berkas.*, users.username as operator_name')
+            ->join('users', 'users.id = berkas.operator_id', 'left')
+            ->where('berkas.status', 'diverifikasi')
+            ->orderBy('berkas.updated_at', 'DESC')
+            ->findAll();
+
+        // Debug
+        log_message('error', 'Kepala Balai Data - Jumlah berkas: ' . count($berkas));
+
+        return $this->response->setJSON(['data' => $berkas]);
+    }
+
+    // Detail sudah ada sebelumnya, pastikan method kepalaBalaiDetail ada
+    // Proses sudah ada sebelumnya
+
+    // Riwayat Persetujuan Kepala Balai
+    public function kepalaBalaiRiwayat()
+    {
+        if (session()->get('role') !== 'kepala_balai') {
+            return redirect()->to('/dashboard');
+        }
+
+        $berkasModel = new \App\Models\BerkasModel();
+
+        $data = [
+            'title' => 'Riwayat Persetujuan Kepala Balai',
+            'riwayat' => $berkasModel
+                        ->select('berkas.*, users.username as operator_name')
+                        ->join('users', 'users.id = berkas.operator_id', 'left')
+                        ->where('berkas.status', 'disetujui')
+                        ->orderBy('berkas.updated_at', 'DESC')
+                        ->findAll()
+        ];
+
+        return view('kepala_balai/riwayat', $data);
+    }
 }

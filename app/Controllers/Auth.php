@@ -31,7 +31,17 @@ class Auth extends BaseController
             ];
             session()->set($sessionData);
 
-            return redirect()->to('/' . $user['role']);
+            // === MAPPING ROLE KE HALAMAN YANG BENAR ===
+            $redirectMap = [
+                'operator'      => '/dashboard/operator',
+                'bendahara'     => '/dashboard/bendahara',
+                'admin'         => '/dashboard/admin',
+                'kepala_balai'  => '/dashboard/kepala-balai',
+            ];
+
+            $redirectUrl = $redirectMap[$user['role']] ?? '/dashboard';
+
+            return redirect()->to($redirectUrl);
         }
 
         session()->setFlashdata('error', 'Username atau password salah!');

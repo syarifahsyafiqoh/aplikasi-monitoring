@@ -44,6 +44,7 @@ $isKelolaUser = str_contains($currentPath, 'kelola-user');
                 <span>Dashboard</span>
             </a>
 
+            <!-- menu untuk operator -->
             <?php if ($role === 'operator'): ?>
                 <div class="nav-item-dropdown">
                     <a
@@ -112,12 +113,28 @@ $isKelolaUser = str_contains($currentPath, 'kelola-user');
                         <span>Laporan</span>
                     </a>
                 </li>
+            <!-- Menu untuk bendahara -->
             <?php elseif ($role === 'bendahara'): ?>
                 <a href="<?= base_url('verifikasi-berkas') ?>" class="nav-item <?= $isVerifikasi ? 'active' : '' ?>">
                     <i class="bi bi-check2-all"></i>
                     <span>Verifikasi Berkas</span>
                 </a>
-            <?php elseif ($role === 'admin'): ?>
+            <?php endif; ?>
+
+            <!-- Menu untuk Kepala Balai -->
+            <?php if ($role === 'kepala_balai'): ?>
+                <a href="<?= base_url('persetujuan-kepala') ?>" class="nav-link text-white py-3 px-3 rounded mb-2 <?= (strpos(current_url(), 'persetujuan-kepala') !== false) ? 'bg-white text-success' : 'opacity-75' ?>">
+                    <i class="bi bi-check2-circle me-3"></i> Persetujuan Akhir
+                </a>
+                <a href="<?= base_url('persetujuan-kepala/riwayat') ?>" class="nav-link text-white py-3 px-3 rounded mb-2 <?= (strpos(current_url(), 'riwayat') !== false) ? 'bg-white text-success' : 'opacity-75' ?>">
+                    <i class="bi bi-clock-history me-3"></i> Riwayat Persetujuan
+                </a>
+                <a href="<?= base_url('laporan/kepala') ?>" class="nav-link text-white py-3 px-3 rounded mb-2">
+                    <i class="bi bi-file-earmark-bar-chart me-3"></i> Laporan
+                </a>
+            <?php endif; ?>
+            <!-- menu untuk admin -->
+            <?php if ($role === 'admin'): ?>
                 <a href="<?= base_url('kelola-user') ?>" class="nav-item <?= $isKelolaUser ? 'active' : '' ?>">
                     <i class="bi bi-people"></i>
                     <span>Kelola User</span>

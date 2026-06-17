@@ -23,12 +23,24 @@ class Dashboard extends BaseController
     }
 
     // Dashboard utama: redirect sesuai role
+    // Dashboard utama: redirect sesuai role
     public function index()
     {
         if ($redirect = $this->requireLogin()) return $redirect;
 
         $role = $this->session->get('role');
-        return redirect()->to("/dashboard/{$role}");
+
+        // Mapping role ke URL yang benar
+        $redirectMap = [
+            'operator'      => '/dashboard/operator',
+            'bendahara'     => '/dashboard/bendahara',
+            'admin'         => '/dashboard/admin',
+            'kepala_balai'  => '/dashboard/kepala-balai',   // ← Perbaikan utama
+        ];
+
+        $url = $redirectMap[$role] ?? '/dashboard';
+
+        return redirect()->to($url);
     }
 
     // Dashboard Operator
@@ -141,6 +153,33 @@ class Dashboard extends BaseController
 
     return view('dashboard/bendahara', $data);
 }
+
+    // Dashboard Kepala Balai
+    public function kepalaBalai()
+    {
+        if ($redirect = $this->requireLogin()) return $redirect;
+        if ($this->session->get('role') !== 'kepala_balai') {
+            return redirect()->to('/dashboard');
+        }
+
+        $berkasModel = new \App\Models\BerkasModel();
+
+        $data = [
+            'title' => 'Dashboard Kepala Balai',
+            'menunggu_persetujuan' => $berkasModel->where('status', 'diverifikasi')->countAllResults(),
+            'sudah_disetujui'      => $berkasModel->where('status', 'disetujui')->countAllResults(),
+            'ditolak'              => $berkasModel->where('status', 'ditolak')->countAllResults(),
+            'berkas_terbaru'       => $berkasModel
+                                        ->select('berkas.*, users.username as operator_name')
+                                        ->join('users', 'users.id = berkas.operator_id', 'left')
+                                        ->where('berkas.status', 'diverifikasi')
+                                        ->orderBy('berkas.updated_at', 'DESC')
+                                        ->limit(5)
+                                        ->findAll()
+        ];
+
+        return view('dashboard/kepala_balai', $data);
+    }
 
     // Dashboard Admin
     public function admin()

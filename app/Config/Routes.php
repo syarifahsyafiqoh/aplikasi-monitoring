@@ -38,6 +38,16 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('bendahara', 'Dashboard::bendahara');
     $routes->get('admin', 'Dashboard::admin');
 
+    // === DASHBOARD KEPALA BALAI ===
+    $routes->get('dashboard/kepala-balai', 'Dashboard::kepalaBalai');
+
+    // === PERSETUJUAN KEPALA BALAI ===
+    $routes->get('persetujuan-kepala', 'VerifikasiBerkas::kepalaBalaiIndex');
+    $routes->get('persetujuan-kepala/data', 'VerifikasiBerkas::kepalaBalaiData');
+    $routes->get('persetujuan-kepala/detail/(:num)', 'VerifikasiBerkas::kepalaBalaiDetail/$1');
+    $routes->post('persetujuan-kepala/proses/(:num)', 'VerifikasiBerkas::kepalaBalaiProses/$1');
+    $routes->get('persetujuan-kepala/riwayat', 'VerifikasiBerkas::kepalaBalaiRiwayat');
+
     // Perjalanan Dinas
     $routes->get('perjalanan-dinas', 'PerjalananDinas::index');
     $routes->get('perjalanan-dinas/data', 'PerjalananDinas::getData');
@@ -146,5 +156,4 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('workflow/form/(:num)', 'WorkflowController::form/$1');
     $routes->post('workflow/save', 'WorkflowController::save');
     $routes->delete('workflow/delete/(:num)', 'WorkflowController::delete/$1');
-
 });

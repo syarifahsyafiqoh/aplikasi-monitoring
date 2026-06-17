@@ -30,6 +30,7 @@
                         <option value="">Pilih Role</option>
                         <option value="operator">Operator</option>
                         <option value="bendahara">Bendahara</option>
+                        <option value="kepala_balai">Kepala Balai</option>
                         <option value="admin">Admin</option>
                     </select>
                 </div>
