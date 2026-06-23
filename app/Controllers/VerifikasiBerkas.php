@@ -169,6 +169,22 @@ class VerifikasiBerkas extends BaseController
                 break;
         }
 
+        // Ambil Audit Trail
+        $auditModel = new \App\Models\AuditTrail();
+        $audit_trail = $auditModel
+            ->select('audit_trails.*, users.username')
+            ->join('users', 'users.id = audit_trails.user_id', 'left')
+            ->where('audit_trails.berkas_id', $id)
+            ->orderBy('audit_trails.created_at', 'DESC')
+            ->findAll();
+
+        $data = [
+            'title'       => 'Detail & Verifikasi Berkas',
+            'berkas'      => $berkas,
+            'detail'      => $detail,
+            'audit_trail' => $audit_trail   // ← pastikan ini ada
+        ];    
+
         // Ambil riwayat approval
         $berkasApprovalModel = new \App\Models\BerkasApproval();
         $approval_history = $berkasApprovalModel
@@ -213,6 +229,9 @@ class VerifikasiBerkas extends BaseController
             return $this->response->setJSON(['status' => 'error', 'message' => 'Status tidak valid']);
         }
 
+        $this->logActivity($id, $status === 'diverifikasi' ? 'verify' : 'reject', 
+            $status === 'diverifikasi' ? 'Bendahara memverifikasi berkas' : 'Bendahara menolak berkas');
+
         // Update tabel berkas utama
         $this->berkasModel->update($id, [
             'status'            => $status,
@@ -224,7 +243,7 @@ class VerifikasiBerkas extends BaseController
         $approvalModel = new \App\Models\BerkasApproval();
         
         $approvalModel->where('berkas_id', $id)
-                    ->where('role', 'bendahara')
+                    ->where('status', 'pending')
                     ->set([
                         'status'      => ($status === 'diverifikasi') ? 'approved' : 'rejected',
                         'approved_at' => date('Y-m-d H:i:s'),
@@ -278,10 +297,20 @@ class VerifikasiBerkas extends BaseController
             // tambahkan case lain jika perlu
         }
 
+        // Ambil Audit Trail
+        $auditModel = new \App\Models\AuditTrail();
+        $audit_trail = $auditModel
+            ->select('audit_trails.*, users.username')
+            ->join('users', 'users.id = audit_trails.user_id', 'left')
+            ->where('audit_trails.berkas_id', $id)
+            ->orderBy('audit_trails.created_at', 'DESC')
+            ->findAll();
+
         $data = [
             'title'  => 'Persetujuan Akhir',
             'berkas' => $berkas,
-            'detail' => $detail
+            'detail' => $detail,
+            'audit_trail' => $audit_trail
         ];
 
         return view('kepala_balai/detail', $data);
@@ -300,6 +329,9 @@ class VerifikasiBerkas extends BaseController
         if (!in_array($status, ['disetujui', 'ditolak'])) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'Status tidak valid']);
         }
+
+        $this->logActivity($id, $status === 'disetujui' ? 'approve' : 'reject', 
+            $status === 'disetujui' ? 'Kepala Balai menyetujui berkas' : 'Kepala Balai menolak berkas');
 
         $berkasModel = new \App\Models\BerkasModel();
         $berkasModel->update($id, [

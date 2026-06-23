@@ -129,6 +129,8 @@ class PerjalananDinas extends BaseController
 
         // 3. Buat approval steps sesuai workflow
         $this->buatApprovalSteps($berkasId, 'perjalanan_dinas');
+        // Setelah simpan ke tabel berkas
+        $this->logActivity($id_modul, 'create', 'Operator membuat berkas baru');
 
         return redirect()->to('perjalanan-dinas')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }

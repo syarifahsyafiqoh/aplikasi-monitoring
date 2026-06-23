@@ -18,7 +18,7 @@
 <div class="stat-total-card">
     <div class="stat-total-content">
         <h6>Total Berkas Terverifikasi</h6>
-        <h2><?= number_format($total_terverifikasi) ?></h2>
+        <h2><?= number_format($total_terverifikasi ?? 0) ?></h2>
     </div>
     <div class="stat-total-icon">
         <i class="bi bi-check2-circle"></i>

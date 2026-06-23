@@ -222,6 +222,27 @@
         <?php endif; ?>
     </div>
 
+    <!-- Audit Trail / Riwayat Aktivitas -->
+    <div class="mt-5">
+        <h5><i class="bi bi-clock-history me-2"></i>Riwayat Aktivitas Berkas</h5>
+        <div class="timeline">
+            <?php if (!empty($audit_trail)): ?>
+                <?php foreach ($audit_trail as $log): ?>
+                    <div class="timeline-item">
+                        <div class="timeline-date"><?= date('d M Y H:i', strtotime($log['created_at'])) ?></div>
+                        <div class="timeline-content">
+                            <strong><?= esc($log['username'] ?? 'System') ?></strong> 
+                            <?= esc($log['action']) ?> 
+                            <span class="text-muted"><?= esc($log['description']) ?></span>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-muted">Belum ada riwayat aktivitas.</p>
+            <?php endif; ?>
+        </div>
+    </div>
+
     <!-- Form Verifikasi -->
     <div class="verifikasi-section">
         <h5><i class="bi bi-check2-circle"></i> Tindakan Verifikasi</h5>

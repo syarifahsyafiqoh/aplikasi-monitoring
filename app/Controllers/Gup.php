@@ -103,6 +103,8 @@ class Gup extends BaseController
         ]);
 
         $this->buatApprovalSteps($berkasId, 'gup');
+        // Setelah simpan ke tabel berkas
+        $this->logActivity($id_modul, 'create', 'Operator membuat berkas baru');
 
         return redirect()->to('gup')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }

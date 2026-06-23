@@ -31,6 +31,30 @@ $detail = $detail ?? [];
             <pre><?= print_r($detail, true) ?></pre> <!-- Sementara untuk debug -->
         <?php endif; ?>
 
+        <!-- Audit Trail / Riwayat Aktivitas -->
+        <div class="mt-5">
+            <h5><i class="bi bi-clock-history me-2"></i>Riwayat Aktivitas Berkas</h5>
+            
+            <?php if (!empty($audit_trail)): ?>
+                <div class="timeline">
+                    <?php foreach ($audit_trail as $log): ?>
+                        <div class="timeline-item d-flex mb-3">
+                            <div class="timeline-date text-muted me-3" style="min-width: 110px;">
+                                <?= date('d M Y H:i', strtotime($log['created_at'])) ?>
+                            </div>
+                            <div>
+                                <strong><?= esc($log['username'] ?? 'System') ?></strong> 
+                                <span class="text-primary"><?= esc($log['action']) ?></span><br>
+                                <small class="text-muted"><?= esc($log['description']) ?></small>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <p class="text-muted">Belum ada riwayat aktivitas untuk berkas ini.</p>
+            <?php endif; ?>
+        </div>
+
         <!-- Form Persetujuan -->
         <form id="form-persetujuan">
             <?= csrf_field() ?>

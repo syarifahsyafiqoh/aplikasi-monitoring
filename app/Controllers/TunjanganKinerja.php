@@ -103,6 +103,8 @@ class TunjanganKinerja extends BaseController
         ]);
 
         $this->buatApprovalSteps($berkasId, 'tunjangan_kinerja');
+        // Setelah simpan ke tabel berkas
+        $this->logActivity($id_modul, 'create', 'Operator membuat berkas baru');
 
         return redirect()->to('tunjangan-kinerja')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }

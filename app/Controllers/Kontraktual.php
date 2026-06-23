@@ -103,6 +103,8 @@ class Kontraktual extends BaseController
         ]);
 
         $this->buatApprovalSteps($berkasId, 'kontraktual');
+        // Setelah simpan ke tabel berkas
+        $this->logActivity($id_modul, 'create', 'Operator membuat berkas baru');
 
         return redirect()->to('kontraktual')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }

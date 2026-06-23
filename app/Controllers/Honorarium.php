@@ -103,6 +103,8 @@ class Honorarium extends BaseController
         ]);
 
         $this->buatApprovalSteps($berkasId, 'honorarium');
+        // Setelah simpan ke tabel berkas
+        $this->logActivity($id_modul, 'create', 'Operator membuat berkas baru');
 
         return redirect()->to('honorarium')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }

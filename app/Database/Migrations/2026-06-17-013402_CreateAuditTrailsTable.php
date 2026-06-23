@@ -22,7 +22,7 @@ class CreateAuditTrailsTable extends Migration
                 'type'     => 'INT',
                 'unsigned' => true,
             ],
-            'action' => [           // contoh: 'create', 'update', 'verify', 'approve', 'reject', 'view'
+            'action' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '50',
             ],
@@ -42,8 +42,12 @@ class CreateAuditTrailsTable extends Migration
         ]);
 
         $this->forge->addKey('id', true);
+        
+        // Foreign key hanya untuk berkas_id (yang pasti cocok)
         $this->forge->addForeignKey('berkas_id', 'berkas', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
+        
+        // Foreign key user_id dinonaktifkan sementara
+        // $this->forge->addForeignKey('user_id', 'users', 'id', 'CASCADE', 'CASCADE');
 
         $this->forge->createTable('audit_trails');
     }

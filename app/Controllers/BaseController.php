@@ -55,4 +55,10 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = service('session');
     }
+
+    protected function logActivity($berkasId, $action, $description = null)
+    {
+        $auditModel = new \App\Models\AuditTrail();
+        $auditModel->log($berkasId, $action, $description);
+    }
 }

@@ -103,6 +103,8 @@ class UangMakan extends BaseController
         ]);
 
         $this->buatApprovalSteps($berkasId, 'uang_makan');
+        // Setelah simpan ke tabel berkas
+        $this->logActivity($id_modul, 'create', 'Operator membuat berkas baru');
 
         return redirect()->to('uang-makan')->with('success', 'Data berhasil disimpan dan masuk ke proses approval!');
     }
